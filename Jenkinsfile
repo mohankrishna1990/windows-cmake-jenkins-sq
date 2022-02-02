@@ -27,7 +27,9 @@ pipeline {
             }
         }
         stage('env') {
+            steps {
             sh 'env'
+            } 
         }
         stage('Build') {
           
