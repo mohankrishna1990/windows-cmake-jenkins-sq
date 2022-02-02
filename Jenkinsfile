@@ -39,7 +39,7 @@ pipeline {
                   New-Item -ItemType directory -Path build
                   cmake -S . -B build
          
-                  build-wrapper-win-x86-64.exe --out-dir bw-output make clean all
+                  build-wrapper-win-x86-64.exe --out-dir bw-output cmake clean all
                 '''
             }
            
