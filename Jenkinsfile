@@ -28,8 +28,9 @@ pipeline {
         }
 
         stage('Build') {
+            sh 'env'
             steps {
-                sh 'env'
+                
                 powershell '''                  
                   New-Item -ItemType directory -Path build
                   cmake -S . -B build
