@@ -29,9 +29,11 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'env'
                 powershell '''                  
                   New-Item -ItemType directory -Path build
                   cmake -S . -B build
+         
                   build-wrapper-win-x86-64.exe --out-dir bw-output cmake --build build/ --config Release <# The build is clean thanks to the "cleanWs()" step #>
                 '''
             }
