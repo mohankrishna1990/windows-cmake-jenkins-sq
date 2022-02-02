@@ -28,7 +28,7 @@ pipeline {
         }
         stage('env') {
             steps {
-            sh 'env'
+            echo sh(script: 'env|sort', returnStdout: true)
             } 
         }
         stage('Build') {
