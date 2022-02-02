@@ -26,11 +26,11 @@ pipeline {
                 '''
             }
         }
-
-        stage('Build') {
-            steps {
+        stage('env') {
             sh 'env'
-            }
+        }
+        stage('Build') {
+          
             steps {
                 
                 powershell '''                  
