@@ -36,11 +36,15 @@ pipeline {
             steps {
                 
                 powershell '''                  
-                  New-Item -ItemType directory -Path build
-                  cmake -S . -B build
+                  //New-Item -ItemType directory -Path build
+                  //cmake -S . -B build
+                        $env:Path += ";$HOME/.sonar/build-wrapper-win-x86"
+                       build-wrapper-win-x86-64 --out-dir bw-output <your clean build command>
+                       '''
+
          
-                  build-wrapper-win-x86-64.exe --out-dir bw-output cmake clean all
-                '''
+               //   build-wrapper-win-x86-64.exe --out-dir bw-output cmake clean all
+               // '''
             }
            
         }
