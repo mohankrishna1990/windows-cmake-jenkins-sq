@@ -44,11 +44,11 @@ pipeline {
            
         }
 
-        stage('SonarQube analysis') {
+        stage('SonarScanner') {
             steps {
                 script {
                     def scannerHome = tool 'SonarScanner'; // Name of the SonarQube Scanner you created in "Global Tool Configuration" section
-                    withSonarQubeEnv('SonarScanner') {
+                    withSonarQubeEnv('SonarQube analysis') {
                         powershell "${scannerHome}/bin/sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output  -Dsonar.host.url=http://localhost:9000 -Dsonar.login=122323a8c4cba4bc590c2cc8e96c6d0945e8edb0"
                         //powershe'll '''
                        // powershell "${scannerHome}/bin/sonar-scanner" 
