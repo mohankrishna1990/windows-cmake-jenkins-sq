@@ -50,7 +50,7 @@ pipeline {
                     def scannerHome = tool 'SonarScanner'; // Name of the SonarQube Scanner you created in "Global Tool Configuration" section
                     withSonarQubeEnv() {
                         //powershell '''
-                        powershell "${scannerHome}/bin/sonar-scanner"
+                        powershell "${scannerHome}/bin/sonar-scanner.bat "-D"sonar.projectKey=windows-cmake-jenkins-sq" -D"sonar.sources=." -D"sonar.cfamily.build-wrapper-output=bw-output" -D"sonar.host.url=http://localhost:9000" -D"sonar.login=122323a8c4cba4bc590c2cc8e96c6d0945e8edb0""
                       // ${scannerHome} -D"sonar.projectKey=windows-cmake-jenkins-sq" -D"sonar.sources=." -D"sonar.cfamily.build-wrapper-output=bw-output" -D"sonar.host.url=http://localhost:9000" -D"sonar.login=122323a8c4cba4bc590c2cc8e96c6d0945e8edb0""
                         //'''
                        //bat "-D"sonar.projectKey=windows-cmake-jenkins-sq" -D"sonar.sources=." -D"sonar.cfamily.build-wrapper-output=bw-output" -D"sonar.host.url=http://localhost:9000" -D"sonar.login=122323a8c4cba4bc590c2cc8e96c6d0945e8edb0"
